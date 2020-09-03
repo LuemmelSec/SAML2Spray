@@ -22,7 +22,7 @@ Following you'll find a short explaination of the workflow of a SAML2 authentica
 - site A redirects to the identity provider on site B
 - User authenticates to site B which gives a SAML-Response and redirects the user authenticated to site A, granting access to the desired service
   
-** The long story - step by step**  
+**The long story - step by step**  
 
 Here I will go into a little detail on how the actual process looks like and what you need to take notes and care of.  
 
