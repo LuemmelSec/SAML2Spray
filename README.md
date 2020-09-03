@@ -65,8 +65,8 @@ NOTE: In this scenario Shibboleth was used, but it should work with any SAML2 ID
 >..  
 >set-cookie: shib_idp_session=12345asdaw42qdasdasd; **Domain=idp.mysite**; Path=/; Secure; HttpOnly  
 >..       
->        <form action="https&#x3a;&#x2f;&#x2f;mysite.service&#x2f;Shibboleth.sso&#x2f;SAML2&#x2f;POST" method="post">    
->               <input type="hidden" name="RelayState" value="ss&#x3a;mem&#x3a;f42430684asd3214325qasdfaysdasd"/>                
+>        form action="https&#x3a;&#x2f;&#x2f;mysite.service&#x2f;Shibboleth.sso&#x2f;SAML2&#x2f;POST" method="post"      
+>               input type="hidden" name="RelayState" value="ss&#x3a;mem&#x3a;f42430684asd3214325qasdfaysdasd"                  
 >                                  
->                <input type="hidden" **name="SAMLResponse"** value="PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz48c2Ftb  
+>                input type="hidden" **name="SAMLResponse"** value="PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz48c2Ftb  
 >                ...  
