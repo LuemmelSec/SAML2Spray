@@ -4,14 +4,26 @@ Python Script for SAML2 Authentication Passwordspraying
 In a recent pentest I came accross the need to passwordspray a SAML2 authentication.
 As I couldn't find a ready to go solution, nor was able to do it with burp, I created my own little script to do the job for me.
 
-<img src="./img/SAML2pwspray.jpg">
-  
+<img src="./img/SAML2pwspray.jpg">  
+
+**TL/DR;**  
+
+The script needs some tweaking to fit you current situation:  
+- The URL for the service you want to access  
+- The URL for the Identity Provider which the Service Provider will redirect you to  
+- The values names that the Identity Provider is expecting when authenticating  
+(everything can be read from the following explainations)  
+
+When ready run it with: >python3 saml2spray.py "path/to/userfile" "password"  
+
 Following you'll find a short explaination of the workflow, which is:
 - User want's to access a service on site A
 - site A redirects to the identity provider on site B
 - User authenticates to site B which gives a SAML-Response with which the user can now access site A
   
-In order for the script to run, we need to fetch some things beforehand. Burp or something alike can come in handy here.
+** The long story - step by step**  
+
+In order for the script to run, we need to fetch some things beforehand. Burp or alike can come in handy here.
   
 Initial request to the Service Provider at **mysite.service**:
   
