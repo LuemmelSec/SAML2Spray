@@ -27,7 +27,7 @@ The response is a redirect to the Identity Provider which will handle the authen
 >cache-control: private,no-store,no-cache,max-age=0  
 >location: https://idp.mysite/idp/profile/SAML2/Redirect/SSO?SAMLRequest=hZJdb4IwFIb...
 
-and if followed will loke something like so:
+and if followed will look something like so - which is the actual SAML request:
 
 >GET /idp/profile/SAML2/Redirect/SSO?SAMLRequest=hZJdb4IwFI...&RelayState=ss%3Am...&SigAlg=http%3A%2F%2Fwww.w3.org%2F2001%2F04%2Fxmldsig-more%23rsa-sha512&Signature=pBLfAUYBuNM... HTTP/1.1  
 >User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101 Firefox/60.0  
@@ -35,3 +35,24 @@ and if followed will loke something like so:
 >Accept-Language: en-US,en;q=0.5  
 >...  
 >Host: idp.mysite  
+
+Now we have to authenticate to the IDP with a username and password. This also is the point where you want to fetch the correct names to provide for username and
+password and maybe certain other parameters that have to be provided in order for the login to succeed. In this case we have:
+**j_username
+j_password
+_eventId_proceed
+
+>POST /idp/profile/SAML2/Redirect/SSO?execution=e1s1 HTTP/1.1  
+>Host: idp.mysite  
+>User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101 Firefox/60.0  
+>Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8  
+>Accept-Language: en-US,en;q=0.5  
+>Accept-Encoding: gzip, deflate  
+>Referer: https://idp.mysite/idp/profile/SAML2/Redirect/SSO?execution=e1s1  
+>Content-Type: application/x-www-form-urlencoded  
+>Content-Length: 59  
+>Cookie: JSESSIONID=ABCDEFGHIJKLMNOP123456789  
+>Connection: close  
+>Upgrade-Insecure-Requests: 1  
+>  
+>j_username=test%40test.de&j_password=test&_eventId_proceed=  
