@@ -17,6 +17,8 @@ The script needs some tweaking to fit you current situation:
 When ready run it with:  
 >python3 saml2spray.py "path/to/userfile" "password"  
 
+You will get a colored response in the shell as well as a file containing all found matches of username:password  
+
 Following you'll find a short explaination of the workflow of a SAML2 authentication, which is:
 - User want's to access a service on site A
 - site A redirects to the identity provider on site B
