@@ -13,7 +13,7 @@ In order for the script to run, we need to fetch some things beforehand. Burp or
 
 Initial request to the Service Provider:
 
->GET / HTTP/1.1 \n
->Host: mysite.service \n
->User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101 Firefox/60.0 \n
+>GET / HTTP/1.1  
+>Host: mysite.service  
+>User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101 Firefox/60.0  
 >...
