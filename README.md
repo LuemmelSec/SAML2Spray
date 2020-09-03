@@ -14,14 +14,17 @@ The script needs some tweaking to fit you current situation:
 - The values names that the Identity Provider is expecting when authenticating  
 (everything can be read from the following explainations)  
 
-When ready run it with: >python3 saml2spray.py "path/to/userfile" "password"  
+When ready run it with:  
+>python3 saml2spray.py "path/to/userfile" "password"  
 
-Following you'll find a short explaination of the workflow, which is:
+Following you'll find a short explaination of the workflow of a SAML2 authentication, which is:
 - User want's to access a service on site A
 - site A redirects to the identity provider on site B
-- User authenticates to site B which gives a SAML-Response with which the user can now access site A
+- User authenticates to site B which gives a SAML-Response and redirects the user authenticated to site A, granting access to the desired service
   
 ** The long story - step by step**  
+
+Here I will go into a little detail on how the actual process looks like and what you need to take notes and care of.  
 
 In order for the script to run, we need to fetch some things beforehand. Burp or alike can come in handy here.
   
