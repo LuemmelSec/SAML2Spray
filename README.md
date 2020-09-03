@@ -11,9 +11,27 @@ Following you'll find a short explaination of the workflow, which in short is:
 
 In order for the script to run, we need to fetch some things beforehand. Burp or something alike can come in handy here.
 
-Initial request to the Service Provider:
+Initial request to the Service Provider at mysite.service:
 
 >GET / HTTP/1.1  
 >Host: mysite.service  
 >User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101 Firefox/60.0  
 >...
+
+The response is a redirect to the Identity Provider which will handle the authentication process
+
+>HTTP/1.1 302 Found  
+>date: Thu, 03 Sep 2020 08:27:36 GMT  
+>server: Apache  
+>expires: Wed, 01 Jan 1997 12:00:00 GMT  
+>cache-control: private,no-store,no-cache,max-age=0  
+>location: https://idp.mysite/idp/profile/SAML2/Redirect/SSO?SAMLRequest=hZJdb4IwFIb...
+
+and if followed will loke something like so:
+
+>GET /idp/profile/SAML2/Redirect/SSO?SAMLRequest=hZJdb4IwFI...&RelayState=ss%3Am...&SigAlg=http%3A%2F%2Fwww.w3.org%2F2001%2F04%2Fxmldsig-more%23rsa-sha512&Signature=pBLfAUYBuNM... HTTP/1.1  
+>User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101 Firefox/60.0  
+>Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8  
+>Accept-Language: en-US,en;q=0.5  
+>...  
+>Host: idp.mysite  
