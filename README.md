@@ -38,9 +38,9 @@ and if followed will look something like so - which is the actual SAML request:
 
 Now we have to authenticate to the IDP with a username and password. This also is the point where you want to fetch the correct names to provide for username and
 password and maybe certain other parameters that have to be provided in order for the login to succeed. In this case we have:
-**j_username
-j_password
-_eventId_proceed
+**j_username  
+j_password  
+_eventId_proceed**
 
 >POST /idp/profile/SAML2/Redirect/SSO?execution=e1s1 HTTP/1.1  
 >Host: idp.mysite  
