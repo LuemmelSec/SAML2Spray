@@ -51,9 +51,9 @@ with open(userfile) as mf:
 			opener.addheaders = [("Authorization", "Basic ABC123"),('User-agent', 'Mozilla/5.0'),('Customheader','Custom Value')]
             print("==> Following Redirections for SAML2 Auth to the IDP")
             resource = (opener.open(SP).read())
-			# decode response of the SP to UTF8 so we have a string in which we can search 
+	    # decode response of the SP to UTF8 so we have a string in which we can search 
             decoded = resource.decode("utf-8")
-			# extract some stuff from the responses to form our URLs and POST data
+	    # extract some stuff from the responses to form our URLs and POST data
             idpurltemp = re.search('action="[^"]*"',decoded)
             idpurl = idpurltemp.group(0)
             idpurl = idpurl.lstrip('action="')
@@ -78,7 +78,7 @@ with open(userfile) as mf:
 #Inspect the page source of the SAML2 login form; find the input names for the username
 #and password, and maybe other arguments that get passed. Use burp or alike
             print("Trying: ",line.rstrip())
-			# change the hardcoded POST parameters to your needs
+	    # change the hardcoded POST parameters to your needs
             loginData = urllib.parse.urlencode({'utf8':'%E2%9C%93','authenticity_token':authtoken,'xsrfProtection':xsrftoken,'method':'GET','idpSSOEndpoint':'https%3A%2F%2FYOURIDPEndpoint','SAMLReques':samlrequest,'RelayState':'http%3A%2F%2FYOURSPEndpoint','SigAlg':'http%3A%2F%2Fwww.w3.org%2F2001%2F04%2Fxmldsig-more%23rsa-sha256','Signature':signature,'j_username':line.rstrip(),'j_password':password})
             bLoginData = loginData.encode('ascii')
             response = opener.open(IDP + idpurl, bLoginData)
