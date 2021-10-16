@@ -1,8 +1,6 @@
 # SAML2Spray
-Python Script for SAML2 Authentication Passwordspraying against Siboleth IDPs.  
+Python Script for SAML2 Authentication Passwordspraying against Sibboleth and SAP IDPs.  
 
-UPDATE 14.10.2021: I now have a second version available that can be used to PWSpray against ASP IDPs. Just configure to your needs.  
-  
 In a recent pentest I came accross the need to passwordspray a SAML2 authentication.
 As I couldn't find a ready to go solution, nor was able to do it with burp, I created my own little script to do the job for me.
 
@@ -24,7 +22,7 @@ You will get a colored response in the shell as well as a file containing all fo
 Following you'll find a short explaination of the workflow of a SAML2 authentication, which is:
 - User want's to access a service on site A
 - site A redirects to the identity provider on site B
-- User authenticates to site B which gives a SAML-Response and redirects the user authenticated to site A, granting access to the desired service
+- User authenticates to site B which gives a SAML-Response and redirects the user to site A, granting access to the desired service by showing the SAML response  
   
 **The long story - step by step**  
 
