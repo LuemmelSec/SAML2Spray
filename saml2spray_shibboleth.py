@@ -1,4 +1,4 @@
-#SAML2 Passwordsprayer for Shiboleth IDPs
+#SAML2 Passwordsprayer for Shibboleth IDPs
 #Creates a handler that follows the redirections from the SP to the IDP
 #logs in with each user from the passwordlist with the provided password
 #uses python 3 syntax
