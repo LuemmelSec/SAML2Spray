@@ -28,7 +28,9 @@ Following you'll find a short explaination of the workflow of a SAML2 authentica
 
 Here I will go into a little detail on how the actual process looks like and what you need to take notes and care of.  
 
-In order for the script to run, we need to fetch some things beforehand. Burp or alike can come in handy here.
+In order for the script to run, we need to fetch some things beforehand. Burp or alike can come in handy here.  
+I highly recommend you first do all the steps manually and check what is send from where to where, and was is expected at the according endpoints (headers, POST params and stuff).  
+Next I recommend to run the script through burp with proxychains, to see where you fucked up ;)  
   
 Initial request to the Service Provider at **mysite.service**:
   
