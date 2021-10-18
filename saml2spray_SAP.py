@@ -48,7 +48,7 @@ with open(userfile) as mf:
             sslHandler = urllib.request.HTTPSHandler(context=context)
             opener = urllib.request.build_opener(sslHandler, ShibRedirectHandler, cookieprocessor)
             # set your headers here if needed for the SP - e.g. authorization headers and stuff
-			opener.addheaders = [("Authorization", "Basic ABC123"),('User-agent', 'Mozilla/5.0'),('Customheader','Custom Value')]
+			opener.addheaders = [("Authorization", "Basic Tm9wZU5vdDpSZWFsbHlCdWRkeTop"),('User-agent', 'Mozilla/5.0'),('Customheader','Custom Value')]
             print("==> Following Redirections for SAML2 Auth to the IDP")
             resource = (opener.open(SP).read())
 	    # decode response of the SP to UTF8 so we have a string in which we can search 
